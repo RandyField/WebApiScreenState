@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+</body>
+</html>
+<script src="Scripts/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var url = 'api/HardwareState/PostData';
+        var para = {};
+        para["recordid"] = "C010106B2020300170322111916";
+        para["computername"] = "C040000AZ100600";
+        para["errornum"] = "83420";
+        para["producetime"] = "2017-03-22 11:19:16";
+        var str = JSON.stringify(para);
+        var data = {};
+        data[""] = str;
+        //={"computername":"C010106B2020300","errornum":"83420","producetime":"2017-03-22 11:19:16","recordid":"C010106B2020300170322111916"}
+
+        //={"computername":"C010106B2020300","errornum":"83420","producetime":"2017-03-22 10:55:43","recordid":"C010106B2020300170322105543"}
+        debugger;
+        $.post(url, data)
+            .done(function (data) {
+                alert(data);
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                alert(jqXHR + "-" + textStatus + "-" + err);
+            });
+        //$.ajax({
+        //    type: 'post',//可选get  
+        //    url: url,
+        //    data: JSON.stringify(param),
+        //    contentType: "application/json", //必须有
+        //    dataType: 'json',//服务器返回的数据类型 可选XML ,Json jsonp script htmltext等  
+        //    success: function (result) {
+        //        alert(result);
+        //        //if (result.success) {
+        //        //    debugger;
+        //        //    location.href = "Home/Index";
+        //        //}
+        //    },
+        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //        alert("api调用接口出错");
+        //        alert("XMLHttpRequest:"+XMLHttpRequest.status);
+        //        alert("Status:"+XMLHttpRequest.readyState);
+        //        alert("error:" + errorThrown);
+        //    }
+        //});
+    });
+</script>

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="socketlib_serverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TH_HARDWARE_STATE">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="nchar" MaxLength="41" Nullable="false" />
+          <Property Name="hardsn" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="computername" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="errornum" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="producetime" Type="datetime" />
+          <Property Name="uploadtime" Type="datetime" />
+          <Property Name="storetime" Type="datetime" />
+          <Property Name="savetype" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TS_SOCKETLIB_CONFIG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hardsn" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="computername" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="nodecomputername" Type="nchar" MaxLength="16" />
+          <Property Name="cityname" Type="nchar" MaxLength="41" Nullable="false" />
+          <Property Name="linename" Type="nchar" MaxLength="41" Nullable="false" />
+          <Property Name="stationname" Type="nchar" MaxLength="41" Nullable="false" />
+          <Property Name="terminaltype" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="clienttype" Type="int" Nullable="false" />
+          <Property Name="stationseq" Type="int" />
+          <Property Name="projectname" Type="nchar" MaxLength="21" Nullable="false" />
+          <Property Name="modifytime" Type="datetime" />
+          <Property Name="modifier" Type="nchar" MaxLength="21" />
+          <Property Name="verifier" Type="nchar" MaxLength="21" />
+          <Property Name="usedmark" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="citycode" Type="nchar" MaxLength="3" />
+          <Property Name="position" Type="nchar" MaxLength="41" />
+          <Property Name="screentype" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="socketlib_serverModelStoreContainer">
+          <EntitySet Name="TH_HARDWARE_STATE" EntityType="Self.TH_HARDWARE_STATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TS_SOCKETLIB_CONFIG" EntityType="Self.TS_SOCKETLIB_CONFIG" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="socketlib_serverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TH_HARDWARE_STATE">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="String" MaxLength="41" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="hardsn" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="computername" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="errornum" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="producetime" Type="DateTime" Precision="3" />
+          <Property Name="uploadtime" Type="DateTime" Precision="3" />
+          <Property Name="storetime" Type="DateTime" Precision="3" />
+          <Property Name="savetype" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="socketlib_serverEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TH_HARDWARE_STATE" EntityType="Self.TH_HARDWARE_STATE" />
+          <EntitySet Name="TS_SOCKETLIB_CONFIG" EntityType="socketlib_serverModel.TS_SOCKETLIB_CONFIG" />
+        </EntityContainer>
+        <EntityType Name="TS_SOCKETLIB_CONFIG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hardsn" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="computername" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="nodecomputername" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="cityname" Type="String" Nullable="false" MaxLength="41" FixedLength="true" Unicode="true" />
+          <Property Name="linename" Type="String" Nullable="false" MaxLength="41" FixedLength="true" Unicode="true" />
+          <Property Name="stationname" Type="String" Nullable="false" MaxLength="41" FixedLength="true" Unicode="true" />
+          <Property Name="terminaltype" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="clienttype" Type="Int32" Nullable="false" />
+          <Property Name="stationseq" Type="Int32" />
+          <Property Name="projectname" Type="String" Nullable="false" MaxLength="21" FixedLength="true" Unicode="true" />
+          <Property Name="modifytime" Type="DateTime" Precision="3" />
+          <Property Name="modifier" Type="String" MaxLength="21" FixedLength="true" Unicode="true" />
+          <Property Name="verifier" Type="String" MaxLength="21" FixedLength="true" Unicode="true" />
+          <Property Name="usedmark" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="citycode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="41" FixedLength="true" Unicode="true" />
+          <Property Name="screentype" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="socketlib_serverModelStoreContainer" CdmEntityContainer="socketlib_serverEntities">
+          <EntitySetMapping Name="TH_HARDWARE_STATE">
+            <EntityTypeMapping TypeName="socketlib_serverModel.TH_HARDWARE_STATE">
+              <MappingFragment StoreEntitySet="TH_HARDWARE_STATE">
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
+                <ScalarProperty Name="hardsn" ColumnName="hardsn" />
+                <ScalarProperty Name="computername" ColumnName="computername" />
+                <ScalarProperty Name="errornum" ColumnName="errornum" />
+                <ScalarProperty Name="producetime" ColumnName="producetime" />
+                <ScalarProperty Name="uploadtime" ColumnName="uploadtime" />
+                <ScalarProperty Name="storetime" ColumnName="storetime" />
+                <ScalarProperty Name="savetype" ColumnName="savetype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TS_SOCKETLIB_CONFIG">
+            <EntityTypeMapping TypeName="socketlib_serverModel.TS_SOCKETLIB_CONFIG">
+              <MappingFragment StoreEntitySet="TS_SOCKETLIB_CONFIG">
+                <ScalarProperty Name="screentype" ColumnName="screentype" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="citycode" ColumnName="citycode" />
+                <ScalarProperty Name="usedmark" ColumnName="usedmark" />
+                <ScalarProperty Name="verifier" ColumnName="verifier" />
+                <ScalarProperty Name="modifier" ColumnName="modifier" />
+                <ScalarProperty Name="modifytime" ColumnName="modifytime" />
+                <ScalarProperty Name="projectname" ColumnName="projectname" />
+                <ScalarProperty Name="stationseq" ColumnName="stationseq" />
+                <ScalarProperty Name="clienttype" ColumnName="clienttype" />
+                <ScalarProperty Name="terminaltype" ColumnName="terminaltype" />
+                <ScalarProperty Name="stationname" ColumnName="stationname" />
+                <ScalarProperty Name="linename" ColumnName="linename" />
+                <ScalarProperty Name="cityname" ColumnName="cityname" />
+                <ScalarProperty Name="nodecomputername" ColumnName="nodecomputername" />
+                <ScalarProperty Name="computername" ColumnName="computername" />
+                <ScalarProperty Name="hardsn" ColumnName="hardsn" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
